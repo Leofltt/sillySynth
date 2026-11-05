@@ -1,0 +1,29 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 22,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "emocxx",
+      "displayName": "emocxx Emoji C++ Transpiler",
+      "description": "Build SillySynth using the emocxx compiler proxy",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build",
+      "toolchainFile": "${sourceParentDir}/emocxx/cmake/emocxx-toolchain.cmake",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+        "REAL_CXX": "clang++"
+      }
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "emocxx",
+      "configurePreset": "emocxx"
+    }
+  ]
+}
